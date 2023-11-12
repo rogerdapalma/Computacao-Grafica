@@ -1,0 +1,29 @@
+Este é um shader escrito em GLSL (OpenGL Shading Language) que gera padrões visuais interessantes usando a técnica Truchet. Vamos analisar o código em partes:
+
+Verificação de Precisão (Linha 5-6):
+
+Similar ao código anterior, verifica se estamos utilizando o GLSL ES (OpenGL ES) e define a precisão para variáveis de ponto flutuante.
+Definição da Constante PI (Linha 9):
+
+Define a constante PI para uso no código.
+Declaração de Variáveis Uniformes (Linha 12-14):
+
+Declara variáveis uniformes fornecidas pela aplicação, como a resolução da tela (u_resolution), a posição do mouse (u_mouse), e o tempo desde o início da execução do shader (u_time).
+Função para Geração de Números Pseudoaleatórios (Linha 16-19):
+
+A função random gera números pseudoaleatórios a partir de uma posição (vec2 _st) usando uma fórmula com operações trigonométricas.
+Função Truchet (Linha 21-38):
+
+A função truchetPattern implementa um padrão Truchet. Ela recebe uma posição normalizada (_st) e um índice (_index) que determina a orientação do padrão. O padrão Truchet consiste em quadrados divididos em dois triângulos, e a função calcula a orientação do triângulo com base no índice.
+Função Principal (main - Linha 40-76):
+
+A função principal é onde a execução do shader ocorre para cada fragmento (pixel) na tela.
+Coordenadas normalizadas (st) são calculadas em relação à resolução da tela e escaladas por 10 (st *= 10.0).
+Coordenadas inteiras (ipos) e fracionárias (fpos) da posição escalada são obtidas.
+A função truchetPattern é chamada com a coordenada fracionária e um valor aleatório baseado nas coordenadas inteiras.
+Há três seções distintas de código que definem a cor (color) do fragmento com base em diferentes padrões visuais:
+Maze: Um padrão de labirinto.
+Circles: Círculos concêntricos.
+Truchet (2 triângulos): Padrão Truchet com dois triângulos.
+A cor do fragmento é finalmente definida (gl_FragColor = vec4(vec3(color), 1.0)).
+Este shader pode ser modificado ajustando os parâmetros ou adicionando funcionalidades para criar uma variedade de padrões visuais baseados na técnica Truchet.

@@ -1,0 +1,29 @@
+Este código é um shader GLSL intitulado "Fractal Brownian Motion" ou "fbm", criado por Patricio Gonzalez Vivo em 2015. Abaixo está uma breve descrição do seu funcionamento:
+
+Verificação de Precisão (Linha 6):
+
+Assim como em outros shaders, verifica se está usando o GLSL ES (OpenGL ES) e define a precisão para variáveis de ponto flutuante, adaptando-se às restrições dessa linguagem.
+Declaração de Variáveis Uniformes (Linhas 8-10):
+
+Utiliza variáveis uniformes fornecidas pela aplicação, como a resolução da tela (u_resolution), a posição do mouse (u_mouse), e o tempo desde o início da execução do shader (u_time).
+Função random (Linhas 12-16):
+
+Gera números pseudoaleatórios a partir de uma coordenada 2D usando a função fract e operações matemáticas com sin e dot.
+Função noise (Linhas 18-32):
+
+Implementa uma função de ruído baseada em coordenadas 2D. Usa a função random para obter valores pseudoaleatórios em quatro cantos de uma "tile" e realiza interpolações para obter um padrão de ruído mais suave.
+Macro OCTAVES e Função fbm (Linhas 34-54):
+
+Define um número de "octaves" (OCTAVES) e implementa a função fbm (Fractal Brownian Motion). Esta função utiliza várias iterações da função de ruído para gerar padrões fractais. A cada iteração, a frequência é dobrada, e a amplitude é reduzida pela metade.
+Função Principal (main - Linhas 56-64):
+
+Calcula as coordenadas normalizadas do fragmento em relação à resolução da tela.
+Ajusta as coordenadas para considerar a proporção da resolução da tela.
+Inicializa uma cor (vetor de 3 componentes) como preto (0.0).
+Adiciona a contribuição do fbm às componentes de cor, criando um padrão visual.
+Define a cor do fragmento usando gl_FragColor.
+Esse shader gera um efeito visual interessante conhecido como "Fractal Brownian Motion", que é comumente usado para criar texturas procedurais e paisagens fractais em computação gráfica. O padrão é suavizado e evolui ao longo do tempo com base na coordenada do fragmento e no tempo de execução.
+
+
+
+

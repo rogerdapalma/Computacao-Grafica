@@ -1,0 +1,26 @@
+Este é um shader GLSL chamado "CellularNoise" criado por Patricio Gonzalez Vivo. Aqui está uma breve descrição de como ele funciona:
+
+Declaração de Variáveis Uniformes (Linhas 6-8):
+
+Utiliza variáveis uniformes fornecidas pela aplicação, incluindo a resolução da tela (u_resolution), a posição do mouse (u_mouse), e o tempo desde o início da execução do shader (u_time).
+Função de Geração de Números Aleatórios 2D (Linhas 10-12):
+
+Define uma função random2 que recebe um vetor p e retorna os componentes fracionários do seno aplicado aos produtos internos desse vetor com duas constantes vetoriais.
+Função Principal (main - Linhas 14-61):
+
+Calcula as coordenadas normalizadas do fragmento em relação à resolução da tela.
+Multiplica essas coordenadas pelo ajuste da proporção da resolução (u_resolution.x/u_resolution.y).
+Inicializa uma cor como um vetor tridimensional (vec3(0.0)).
+Escala as coordenadas (st) por 3.
+Divide as coordenadas em parte inteira (i_st) e parte fracionária (f_st).
+Inicializa a distância mínima (m_dist) como 1.0.
+Itera sobre vizinhos na grade, gerando pontos aleatórios, animando esses pontos, calculando distâncias e mantendo a distância mínima.
+Adiciona a distância mínima à cor final.
+Desenha o centro da célula.
+Desenha uma grade na tela.
+Adiciona isolinhas ao desenho se descomentadas.
+Este shader gera uma representação visual de "cellular noise" (ruído celular), onde cada célula tem um ponto central que é animado ao longo do tempo. O shader mostra a distância do fragmento mais próximo a essas células, criando um padrão visual interessante com linhas, células e movimento animado.
+
+
+
+

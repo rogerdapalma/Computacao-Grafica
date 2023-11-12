@@ -1,0 +1,26 @@
+Este é um shader GLSL chamado "Strange Attractor", criado por Patricio Gonzalez Vivo em 2015. Abaixo está uma breve descrição do seu funcionamento:
+
+1. **Verificação de Precisão (Linha 6):**
+   - Similar a outros shaders, verifica se está usando o GLSL ES (OpenGL ES) e define a precisão para variáveis de ponto flutuante.
+
+2. **Declaração de Variáveis Uniformes (Linhas 8-10):**
+   - Usa variáveis uniformes fornecidas pela aplicação, incluindo a resolução da tela (`u_resolution`), a posição do mouse (`u_mouse`), e o tempo desde o início da execução do shader (`u_time`).
+
+3. **Função `random` (Linhas 12-16):**
+   - Gera números pseudoaleatórios a partir de uma coordenada 2D usando a função `fract`, `sin`, `dot`, e constantes específicas.
+
+4. **Função `noise` (Linhas 18-32):**
+   - Implementa uma função de ruído baseada em coordenadas 2D usando a função `random`. Realiza interpolações para obter um padrão de ruído mais suave.
+
+5. **Macro `NUM_OCTAVES` e Função `fbm` (Linhas 34-57):**
+   - Define um número de "octaves" (`NUM_OCTAVES`) e implementa a função `fbm` (Fractal Brownian Motion), que utiliza várias iterações da função de ruído para gerar padrões fractais. A cada iteração, a frequência é aumentada e a amplitude é reduzida.
+
+6. **Função Principal (`main` - Linhas 59-89):**
+   - Calcula as coordenadas normalizadas do fragmento em relação à resolução da tela.
+   - Multiplica essas coordenadas por 3.0.
+   - Gera um padrão visual baseado no tempo usando funções `fbm` para criar as coordenadas `q` e `r`.
+   - Calcula a cor final com base nos padrões gerados.
+   - Usa as coordenadas `q` e `r` para ajustar a mistura de cores.
+   - Define a cor do fragmento usando `gl_FragColor`.
+
+Esse shader gera um padrão visual complexo e dinâmico, resultante da aplicação de funções de ruído fractal em diferentes coordenadas ao longo do tempo. O código combina várias técnicas para criar um efeito de atração estranha ("Strange Attractor") que se assemelha a um fenômeno caótico.

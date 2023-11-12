@@ -1,0 +1,11 @@
+Este é um fragment shader GLSL que gera um padrão visual aleatório. Aqui está uma breve descrição:
+
+Declaração de precisão: O código verifica se está usando o GLSL ES (OpenGL ES) e define a precisão para variáveis de ponto flutuante, se necessário.
+
+Declaração de variáveis uniformes: u_resolution, u_mouse, e u_time são variáveis fornecidas pela aplicação (resolução da tela, posição do mouse e tempo).
+
+Função de número aleatório: A função random usa o método de hash baseado em seno para gerar um número pseudoaleatório a partir das coordenadas st.
+
+Main Function: Calcula as coordenadas normalizadas do fragmento em relação à resolução da tela, chama a função random com essas coordenadas e define a cor do fragmento com base no valor aleatório gerado.
+
+Este shader cria um padrão visual pseudoaleatório, onde cada fragmento é colorido com base em um valor aleatório gerado a partir de suas coordenadas. Isso resulta em uma imagem com uma aparência de "ruído" ou "estática" visual.

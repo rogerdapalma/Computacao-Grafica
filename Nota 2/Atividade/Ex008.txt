@@ -1,0 +1,19 @@
+Este é um shader GLSL chamado "4 cells DF" criado por Patricio Gonzalez Vivo. Abaixo está uma breve descrição de como ele funciona:
+
+Declaração de Variáveis Uniformes (Linhas 6-8):
+
+Utiliza variáveis uniformes fornecidas pela aplicação, incluindo a resolução da tela (u_resolution), a posição do mouse (u_mouse), e o tempo desde o início da execução do shader (u_time).
+Função Principal (main - Linhas 10-32):
+
+Calcula as coordenadas normalizadas do fragmento em relação à resolução da tela.
+Multiplica essas coordenadas pelo ajuste da proporção da resolução (u_resolution.x/u_resolution.y).
+Inicializa uma cor como um vetor tridimensional (vec3(0.0)).
+Define as posições de cinco células (point[0] a point[4]).
+Inicializa a distância mínima (m_dist) como 1.0.
+Itera sobre as posições das células, calcula a distância entre o fragmento e cada célula, e mantém o valor mínimo (m_dist).
+Soma a distância mínima à cor final.
+Define a cor do fragmento usando gl_FragColor.
+Comentários (Linhas 34-37):
+
+Existem linhas de código comentadas que, se descomentadas, adicionam isolinhas ao desenho, criando um padrão adicional com base na função seno aplicada à distância mínima.
+Este shader funciona como um "distance field" (campo de distância), onde cada célula é representada por uma posição específica no espaço. A cor de um fragmento é determinada pela distância mínima desse fragmento a qualquer uma das cinco células. O shader cria um efeito visual simples e geométrico, mostrando a influência das células na representação visual de cada ponto na tela.
