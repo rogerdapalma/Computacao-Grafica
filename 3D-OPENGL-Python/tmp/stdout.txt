@@ -1,0 +1,8 @@
+ O volume na unidade C n∆o tem nome.
+ O N£mero de SÇrie do Volume Ç 9E56-1C50
+
+ Pasta de C:\Users\User\Desktop\Nova pasta (5)\3D-OPENGL-Python-main\venv\Scripts
+
+26/11/2023  22:44           270.616 python.exe
+               1 arquivo(s)        270.616 bytes
+               0 pasta(s)   108.623.982.592 bytes dispon°veis
